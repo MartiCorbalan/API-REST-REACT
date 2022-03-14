@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
+const ENDPOINT = "https://jsonplaceholder.typicode.com/todos";
 function AfegirTodo() {
   const titleRef = useRef();
   return (
@@ -10,15 +11,11 @@ function AfegirTodo() {
         console.log(title);
         titleRef.current.value = "";
         //enviar utilitzant el fetch
-        fetch("https://tc-todo-2022.herokuapp.com/todos", {
+        fetch(ENDPOINT, {
           method: "POST",
           body: JSON.stringify({
-            title: "Fer un post",
-            completed: false,
+            title,
           }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
         })
           .then((response) => response.json())
           .then((json) => console.log(json));
@@ -35,7 +32,7 @@ function App() {
 
   useEffect(() => {
     /* fetch("https://jsonplaceholder.typicode.com/todos") */
-    fetch("https://tc-todo-2022.herokuapp.com/todos")
+    fetch(ENDPOINT)
       .then((response) => response.json())
       .then((json) => setTodos(json));
   });
