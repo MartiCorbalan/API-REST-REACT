@@ -1,0 +1,18 @@
+import { REPLACE_TODOS, UPDATE_TODO } from "./actions";
+
+export const initialState = [];
+export function reduceTodos(state = initialState, action) {
+  switch (action.type) {
+    case REPLACE_TODOS:
+      return action.todos;
+    case "ADD_TODO":
+      return [...state, action.todo];
+    case UPDATE_TODO:
+      return state.map(
+        (currentTodo) =>
+          currentTodo.id === action.todo.id ? action.todo : currentTodo //canvia el que te la mateixa id
+      );
+    default:
+      return state;
+  }
+}
