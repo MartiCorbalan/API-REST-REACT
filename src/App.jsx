@@ -1,5 +1,5 @@
 import React from "react";
-export { Todos } from "./Todos/Todos";
+import { Todos } from "./todos/index";
 
 export default function App() {
   //funcio del index
