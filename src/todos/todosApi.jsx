@@ -6,12 +6,10 @@ export async function getTodos() {
 }
 
 //amb el metode POST creem un nou item
-export async function postNewTodo(title) {
+export async function postNewTodo(todo) {
   return fetch(ENDPOINT, {
     method: "POST",
-    body: JSON.stringify({
-      title,
-    }),
+    body: JSON.stringify(todo),
   }).then((response) => response.json());
 }
 
@@ -20,8 +18,22 @@ export async function postUpdateTodo(todo) {
   //modificar URL, ENDPOINT es una variable
   return fetch(ENDPOINT + "/" + todo.id, {
     method: "POST",
-    body: JSON.stringify({
-      completed: !todo.completed,
-    }),
+    body: JSON.stringify(todo),
+  }).then((response) => response.json());
+}
+
+export async function canviarTodo(todo) {
+  //modificar URL, ENDPOINT es una variable
+  return fetch(ENDPOINT + "/" + todo.id, {
+    method: "POST",
+    body: JSON.stringify({ title: todo.title }),
+  }).then((response) => response.json());
+}
+
+export async function searchTodo(todo) {
+  //modificar URL, ENDPOINT es una variable
+  return fetch(ENDPOINT + "/" + todo.id, {
+    method: "POST",
+    body: JSON.stringify({ title: todo.title }),
   }).then((response) => response.json());
 }

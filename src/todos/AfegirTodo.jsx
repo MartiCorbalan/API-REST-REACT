@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { postNewTodo } from "./todosApi";
 
-export function AfegirTodo({ onTodoAdded }) {
+export function AfegirTodo({ onAddTodo }) {
   const titleRef = useRef();
   return (
     <form
@@ -12,9 +12,10 @@ export function AfegirTodo({ onTodoAdded }) {
         titleRef.current.value = "";
         //enviar utilitzant el fetch
 
+        onAddTodo({ title });
         //passem el title a la funcio de crear nou item
         //i ens retorna el json
-        postNewTodo(title).then((json) => onTodoAdded(json));
+        //postNewTodo(title).then((json) => onTodoAdded(json));
       }}
     >
       <input ref={titleRef} />

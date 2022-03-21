@@ -1,40 +1,52 @@
-import React, { useEffect, useReducer, useState } from "react";
+import { useEffect } from "react";
 import { AfegirTodo } from "./AfegirTodo";
-import { replaceTodos, addTodo, updateTodo } from "./actions";
+import {
+  requestAddTodo,
+  requestUpdateTodo,
+  requestTodos,
+  editTodo,
+  toggleTodo,
+} from "./actions";
 import { TodoList } from "./TodoList";
-import { getTodos } from "./todosApi";
-import { initialState, reduceTodos } from "./reducers";
-
-//mostrar tots els todos
+import { useDispatch, useSelector } from "react-redux";
+import { selectTodos } from "./selectors";
 
 export function Todos() {
-  const [todos, dispatch] = useReducer(reduceTodos, initialState);
+  const todos = useSelector(selectTodos);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    loadTodos();
-    const intervalID = setInterval(() => loadTodos(), 60000);
+    const intervalID = setInterval(() => loadTodos(), 2000);
     return () => clearInterval(intervalID);
   }, []);
 
-  const loadTodos = () =>
-    getTodos().then((allTodos) => dispatch(replaceTodos(allTodos)));
-  const onTodoAdded = (todo) => dispatch(addTodo(todo));
-  const onTodoUpdated = (updatedTodo) => {
-    console.log("holaaaa");
-    dispatch(updateTodo(updatedTodo));
-  };
+  const loadTodos = () => dispatch(requestTodos());
+
+  const onAddTodo = (todo) => dispatch(requestAddTodo(todo));
+
+  const onTodoUpdate = (todo) => dispatch(requestUpdateTodo(todo));
+
+  const onEditTodo = (todo) => dispatch(editTodo(todo));
+
+  const onToggleTodo = (todo) => dispatch(toggleTodo(todo));
 
   return (
     <div className="App">
       <h1>API-REST</h1>
       {/* la funcion getTodos nos da la promesa actualizada de la lista de setTodos ? */}
       <button onClick={loadTodos}>Refresh</button>
+      <input
+        type="text"
+        placeholder="Search task"
+        onChange={(e) => onToggleTodo(e.target.value)}
+      ></input>
       <TodoList
         todos={todos}
-        //manipulem l'estat
-        onUpdated={onTodoUpdated}
+        onTodoUpdate={onTodoUpdate}
+        onEditTodo={onEditTodo}
+        onToggleTodo={onToggleTodo}
       />
-      <AfegirTodo onTodoAdded={onTodoAdded} />
+      <AfegirTodo onAddTodo={onAddTodo} />
     </div>
   );
 }

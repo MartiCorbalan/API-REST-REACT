@@ -6,3 +6,9 @@ li.completed {
   text-decoration: line-through;
   background: red;
 }
+.editOff {
+  display: none;
+}
+.editOn {
+  display: block;
+}

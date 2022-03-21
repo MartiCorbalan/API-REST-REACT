@@ -1,7 +1,15 @@
 import React from "react";
-import { Todos } from "./todos/index";
+import { Todos, requestTodos } from "./todos/index";
+import { store } from "./store";
+import { Provider } from "react-redux";
+
+store.dispatch(requestTodos());
 
 export default function App() {
   //funcio del index
-  return <Todos />;
+  return (
+    <Provider store={store}>
+      <Todos />
+    </Provider>
+  );
 }
