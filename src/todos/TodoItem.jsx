@@ -1,9 +1,10 @@
-import { postUpdateTodo, canviarTodo } from "./todosApi";
+import { postUpdateTodo, canviarTodo, eliminarTodo } from "./todosApi";
 import { useRef, useState } from "react";
-export function TodoItem({ todo, onTodoUpdate, onTodoEdit }) {
+export function TodoItem({ todo, onTodoUpdate, onTodoEdit, onDeleteTodo }) {
   const tituloAux = useRef();
 
   const [editar, setEditar] = useState(false);
+
   return (
     <>
       <li
@@ -23,6 +24,13 @@ export function TodoItem({ todo, onTodoUpdate, onTodoEdit }) {
       >
         editar
       </button>
+      <button
+        onClick={() => {
+          eliminarTodo(todo).then((json) => onDeleteTodo(json));
+        }}
+      >
+        Borrar
+      </button>
 
       {editar && (
         <form
@@ -38,7 +46,7 @@ export function TodoItem({ todo, onTodoUpdate, onTodoEdit }) {
           <input
             ref={tituloAux}
             placeholder="escriu per canviar"
-            className={editar ? "editOn" : "editOff"}
+            /*  className={editar ? "editOn" : "editOff"} */
           ></input>
         </form>
       )}

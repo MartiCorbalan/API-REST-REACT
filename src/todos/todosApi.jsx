@@ -30,10 +30,10 @@ export async function canviarTodo(todo) {
   }).then((response) => response.json());
 }
 
-export async function searchTodo(todo) {
+export async function eliminarTodo(todo) {
   //modificar URL, ENDPOINT es una variable
   return fetch(ENDPOINT + "/" + todo.id, {
-    method: "POST",
-    body: JSON.stringify({ title: todo.title }),
+    method: "DELETE",
+    body: JSON.stringify({ id: todo }),
   }).then((response) => response.json());
 }

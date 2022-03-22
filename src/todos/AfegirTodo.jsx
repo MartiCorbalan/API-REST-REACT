@@ -9,7 +9,7 @@ export function AfegirTodo({ onAddTodo }) {
         e.preventDefault();
         const title = titleRef.current.value;
         console.log(title);
-        titleRef.current.value = "";
+        titleRef.current.value = ""; //borrar value despues de coger el primero
         //enviar utilitzant el fetch
 
         onAddTodo({ title });

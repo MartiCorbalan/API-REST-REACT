@@ -1,11 +1,13 @@
 import { useEffect } from "react";
+import { useRef } from "react";
 import { AfegirTodo } from "./AfegirTodo";
+import { BuscarTodo } from "./BuscarTodo";
 import {
   requestAddTodo,
   requestUpdateTodo,
   requestTodos,
   editTodo,
-  toggleTodo,
+  searchTodo,
 } from "./actions";
 import { TodoList } from "./TodoList";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +19,7 @@ export function Todos() {
 
   useEffect(() => {
     const intervalID = setInterval(() => loadTodos(), 2000);
+
     return () => clearInterval(intervalID);
   }, []);
 
@@ -28,23 +31,21 @@ export function Todos() {
 
   const onEditTodo = (todo) => dispatch(editTodo(todo));
 
-  const onToggleTodo = (todo) => dispatch(toggleTodo(todo));
+  const onToggleTodo = (todo) => dispatch(searchTodo(todo));
 
+  //const onDeleteTodo = (id) => dispatch(deleteTodo(id));
+  const titleRef = useRef();
   return (
     <div className="App">
       <h1>API-REST</h1>
       {/* la funcion getTodos nos da la promesa actualizada de la lista de setTodos ? */}
       <button onClick={loadTodos}>Refresh</button>
-      <input
-        type="text"
-        placeholder="Search task"
-        onChange={(e) => onToggleTodo(e.target.value)}
-      ></input>
+      <BuscarTodo onToggleTodo={onToggleTodo} />
       <TodoList
         todos={todos}
         onTodoUpdate={onTodoUpdate}
         onEditTodo={onEditTodo}
-        onToggleTodo={onToggleTodo}
+        //onDeleteTodo={onDeleteTodo}
       />
       <AfegirTodo onAddTodo={onAddTodo} />
     </div>

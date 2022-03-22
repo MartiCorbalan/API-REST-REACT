@@ -34,6 +34,11 @@ export function editTodo(editedTodo) {
 }
 
 export const TOGGLE_TODO = "todos/TOGGLE_TODO";
-export function toggleTodo(toggledTodo) {
-  return { type: TOGGLE_TODO, todo: toggledTodo };
+export function searchTodo(title) {
+  return { type: TOGGLE_TODO, todo: title };
+}
+
+export const DELETE_TODO = "todos/DELETE_TODO";
+export function deleteTodo(id) {
+  return { type: DELETE_TODO, id: id };
 }

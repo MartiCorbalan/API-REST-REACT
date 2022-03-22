@@ -12,3 +12,9 @@ li.completed {
 .editOn {
   display: block;
 }
+
+.delete {
+  width: 100px;
+  background-color: #000;
+  height: 30px;
+}

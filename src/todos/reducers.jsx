@@ -4,6 +4,7 @@ import {
   ADD_TODO,
   EDIT_TODO,
   TOGGLE_TODO,
+  DELETE_TODO,
 } from "./actions";
 
 export const initialState = [];
@@ -27,17 +28,22 @@ export function reduceTodos(state = initialState, action) {
       );
 
     case TOGGLE_TODO:
-      /*  return state.map(
+      return state.filter((title) => title.title === action.todo);
+
+    /*  return state.map(
         (currentTodo) =>
           currentTodo.todo.toLowerCase().includes(action.title.toLowerCase()) //canvia el que te la mateixa id
       );
  */
-      if (action.title === "") {
-        return [...state, action.todo];
+    /* if (action.title === "") {
+        return state;
       } else {
-        return (currentTodo) =>
-          currentTodo.todo.toLowerCase().includes(action.todo.toLowerCase());
-      }
+        return {
+          state: state.filter((title) => title(action.todo)),
+        };
+      } */
+    case DELETE_TODO:
+      return state.filter((item) => item.id !== action.id);
 
     default:
       return state;
