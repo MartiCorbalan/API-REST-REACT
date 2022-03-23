@@ -7,6 +7,7 @@ import {
   updateTodo,
   REQUEST_DELETE_TODO,
   deleteTodo,
+  REQUEST_EDIT_TODO,
 } from "./actions";
 import {
   getTodos,
