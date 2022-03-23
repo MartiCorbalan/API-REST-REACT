@@ -28,7 +28,15 @@ export function reduceTodos(state = initialState, action) {
       );
 
     case TOGGLE_TODO:
-      return state.filter((title) => title.title === action.todo);
+      //action.title es el todo: title del action
+      if (action.title === "") {
+        return [...state];
+      } else {
+        return state.filter((title) =>
+          title.title.toLowerCase().includes(action.todo.toLowerCase())
+        );
+      }
+    //return state.filter((title) => title.title === action.todo);
 
     /*  return state.map(
         (currentTodo) =>
@@ -42,8 +50,10 @@ export function reduceTodos(state = initialState, action) {
           state: state.filter((title) => title(action.todo)),
         };
       } */
-    case DELETE_TODO:
+    case DELETE_TODO: {
+      console.log("hola", action);
       return state.filter((item) => item.id !== action.id);
+    }
 
     default:
       return state;

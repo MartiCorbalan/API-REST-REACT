@@ -8,6 +8,7 @@ import {
   requestTodos,
   editTodo,
   searchTodo,
+  requestDeleteTodo,
 } from "./actions";
 import { TodoList } from "./TodoList";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +19,7 @@ export function Todos() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const intervalID = setInterval(() => loadTodos(), 2000);
+    const intervalID = setInterval(() => loadTodos(), 60000);
 
     return () => clearInterval(intervalID);
   }, []);
@@ -33,8 +34,11 @@ export function Todos() {
 
   const onToggleTodo = (todo) => dispatch(searchTodo(todo));
 
-  //const onDeleteTodo = (id) => dispatch(deleteTodo(id));
-  const titleRef = useRef();
+  const onDeleteTodo = (id) => {
+    console.log("hola3", id);
+    dispatch(requestDeleteTodo(id));
+  };
+
   return (
     <div className="App">
       <h1>API-REST</h1>
@@ -45,7 +49,7 @@ export function Todos() {
         todos={todos}
         onTodoUpdate={onTodoUpdate}
         onEditTodo={onEditTodo}
-        //onDeleteTodo={onDeleteTodo}
+        onDeleteTodo={onDeleteTodo}
       />
       <AfegirTodo onAddTodo={onAddTodo} />
     </div>

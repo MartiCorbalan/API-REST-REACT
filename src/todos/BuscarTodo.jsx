@@ -1,3 +1,4 @@
+import { getByPlaceholderText } from "@testing-library/react";
 import { useRef } from "react";
 import { postNewTodo } from "./todosApi";
 
@@ -14,8 +15,19 @@ export function BuscarTodo({ onToggleTodo }) {
         onToggleTodo(title);
       }}
     >
-      <input ref={titleRef} />
-      <input type="submit" value="Buscar" />
+      <input ref={titleRef} placeholder="escriu" />
+      <button
+        type="submit"
+        onClick={() => {
+          /* if (titleRef.current.value === "") {
+            alert("escriu ");
+          } else {
+            titleRef.current.value = "";
+          } */
+        }}
+      >
+        Buscar
+      </button>
     </form>
   );
 }

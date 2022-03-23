@@ -38,7 +38,13 @@ export function searchTodo(title) {
   return { type: TOGGLE_TODO, todo: title };
 }
 
+export const REQUEST_DELETE_TODO = "todos/REQUEST_DELETE_TODO";
+export function requestDeleteTodo(id) {
+  console.log("hola2", id);
+  return { type: REQUEST_DELETE_TODO, id: id };
+}
+
 export const DELETE_TODO = "todos/DELETE_TODO";
-export function deleteTodo(id) {
-  return { type: DELETE_TODO, id: id };
+export function deleteTodo(todo) {
+  return { type: DELETE_TODO, id: todo.id };
 }

@@ -1,6 +1,6 @@
 import { TodoItem } from "./TodoItem";
 
-export function TodoList({ todos, onTodoUpdate }) {
+export function TodoList({ todos, onTodoUpdate, onDeleteTodo }) {
   console.log("todos", todos);
   return (
     <ul>
@@ -10,7 +10,7 @@ export function TodoList({ todos, onTodoUpdate }) {
           key={todo.id}
           todo={todo}
           onTodoUpdate={onTodoUpdate}
-          //onDeleteTodo={onDeleteTodo}
+          onDeleteTodo={onDeleteTodo}
         />
       ))}
     </ul>

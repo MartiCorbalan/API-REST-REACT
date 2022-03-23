@@ -24,13 +24,7 @@ export function TodoItem({ todo, onTodoUpdate, onTodoEdit, onDeleteTodo }) {
       >
         editar
       </button>
-      <button
-        onClick={() => {
-          eliminarTodo(todo).then((json) => onDeleteTodo(json));
-        }}
-      >
-        Borrar
-      </button>
+      <button onClick={() => onDeleteTodo(todo.id)}>Borrar</button>
 
       {editar && (
         <form
