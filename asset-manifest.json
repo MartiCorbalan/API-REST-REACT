@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.9ae0ffcb.css",
-    "main.js": "/static/js/main.9b977f0c.js",
-    "index.html": "/index.html",
-    "main.9ae0ffcb.css.map": "/static/css/main.9ae0ffcb.css.map",
-    "main.9b977f0c.js.map": "/static/js/main.9b977f0c.js.map"
+    "main.css": "/marticorbalan.github.io/api-rest-react/static/css/main.9ae0ffcb.css",
+    "main.js": "/marticorbalan.github.io/api-rest-react/static/js/main.4e7248aa.js",
+    "index.html": "/marticorbalan.github.io/api-rest-react/index.html",
+    "main.9ae0ffcb.css.map": "/marticorbalan.github.io/api-rest-react/static/css/main.9ae0ffcb.css.map",
+    "main.4e7248aa.js.map": "/marticorbalan.github.io/api-rest-react/static/js/main.4e7248aa.js.map"
   },
   "entrypoints": [
     "static/css/main.9ae0ffcb.css",
-    "static/js/main.9b977f0c.js"
+    "static/js/main.4e7248aa.js"
   ]
 }
