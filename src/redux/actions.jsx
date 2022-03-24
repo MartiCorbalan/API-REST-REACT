@@ -28,11 +28,6 @@ export function updateTodo(updatedTodo) {
   return { type: UPDATE_TODO, todo: updatedTodo };
 }
 
-/* export const REQUEST_EDIT_TODO = "todos/REQUEST_EDIT_TODO";
-export function requestEditTodo(todo) {
-  return { type: REQUEST_EDIT_TODO, title: todo.title };
-} */
-
 export const EDIT_TODO = "todos/EDIT_TODO";
 export function editTodo(todo) {
   return { type: EDIT_TODO, todo };

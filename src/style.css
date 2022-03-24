@@ -13,8 +13,42 @@ li.completed {
   display: block;
 }
 
-.delete {
-  width: 100px;
-  background-color: #000;
-  height: 30px;
+.header {
+  background-color: rgb(85, 159, 219);
+  text-align: center;
+}
+footer {
+  background-color: rgb(85, 159, 219);
+  text-align: center;
+}
+.allPage {
+  position: relative;
+}
+.llista {
+  background-color: rgb(85, 159, 219);
+  border-radius: 15px;
+  padding: 30px;
+}
+.llista2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.buscar {
+  display: flex;
+}
+.allTodo {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+  min-width: 200px;
 }

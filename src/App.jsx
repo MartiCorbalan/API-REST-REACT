@@ -1,5 +1,6 @@
 import React from "react";
-import { Todos, requestTodos } from "./todos/index";
+import { Todos } from "./todos/Todos";
+import { requestTodos } from "./redux";
 import { store } from "./store";
 import { Provider } from "react-redux";
 

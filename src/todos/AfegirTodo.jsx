@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { postNewTodo } from "./todosApi";
 
 export function AfegirTodo({ onAddTodo }) {
   const titleRef = useRef();
@@ -19,7 +18,9 @@ export function AfegirTodo({ onAddTodo }) {
       }}
     >
       <input ref={titleRef} />
-      <input type="submit" value="Afegir" />
+      <button className="btn btn-primary " type="submit">
+        Afegir
+      </button>
     </form>
   );
 }

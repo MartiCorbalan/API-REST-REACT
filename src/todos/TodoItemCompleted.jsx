@@ -1,13 +1,18 @@
 import { canviarTodo } from "../redux/todosApi";
 import { useRef, useState } from "react";
-export function TodoItem({ todo, onTodoUpdate, onTodoEdit, onDeleteTodo }) {
+export function TodoItemCompleted({
+  todo,
+  onTodoUpdate,
+  onTodoEdit,
+  onDeleteTodo,
+}) {
   const tituloAux = useRef();
 
   const [editar, setEditar] = useState(false);
 
   return (
     <>
-      {!todo.completed && (
+      {todo.completed && (
         <div>
           <div className="llista2">
             <li
