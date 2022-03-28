@@ -5,7 +5,9 @@ export function AfegirTodo({ onAddTodo }) {
   return (
     <form
       onSubmit={(e) => {
+        //per evitar que refresqui la pagina
         e.preventDefault();
+
         const title = titleRef.current.value;
         console.log(title);
         titleRef.current.value = ""; //borrar value despues de coger el primero

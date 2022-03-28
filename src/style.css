@@ -48,7 +48,8 @@ footer {
 .allTodo {
   display: flex;
   flex-direction: row;
-
   gap: 10px;
   min-width: 200px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
