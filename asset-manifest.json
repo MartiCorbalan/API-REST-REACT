@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/api-rest-react/static/css/main.e1fbe957.css",
+    "main.css": "/api-rest-react/static/css/main.9b6f1f4b.css",
     "main.js": "/api-rest-react/static/js/main.8f86db1c.js",
     "index.html": "/api-rest-react/index.html",
-    "main.e1fbe957.css.map": "/api-rest-react/static/css/main.e1fbe957.css.map",
+    "main.9b6f1f4b.css.map": "/api-rest-react/static/css/main.9b6f1f4b.css.map",
     "main.8f86db1c.js.map": "/api-rest-react/static/js/main.8f86db1c.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1fbe957.css",
+    "static/css/main.9b6f1f4b.css",
     "static/js/main.8f86db1c.js"
   ]
 }
